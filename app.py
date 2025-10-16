@@ -528,6 +528,16 @@ def round2(data: Dict):
 # Flask Endpoint
 # =========================
 
+@app.route("/", methods=["GET"])
+def root_ok():
+    return jsonify({"ok": True, "status": "up"}), 200
+
+@app.route("/health", methods=["GET"])
+def health():
+    return "ok", 200
+
+
+
 @app.route("/api-endpoint", methods=["POST"])
 def handle_task_request():
     """
